@@ -38,9 +38,16 @@ def get_all_credentials():
         return f"Failed to retrieve credentials: {str(e)}"
 
 if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Error: Missing action argument. Use 'store' or 'retrieve_all'.")
+        sys.exit(1)
+
     action = sys.argv[1]
     
     if action == "store":
+        if len(sys.argv) < 4:
+            print("Error: Missing name or credential argument for storing.")
+            sys.exit(1)
         name = sys.argv[2]
         credential = sys.argv[3]
         store_credentials(name, credential)
