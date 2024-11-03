@@ -1,7 +1,7 @@
 Name: Credential Storage and Retrieval Tool
-Description: A Python tool to store, retrieve, and list all credentials from a JSON file. Ensures directory structure exists and manages credentials securely.
-Param: action: The action to perform. Options are 'store' or 'retrieve_all'.
-Param: name: The unique name for the credential (used only for storing).
-Param: credential: The actual credential to store (used only for storing).
+Description: A tool that stores or retrieves all credentials from a JSON file. Supports storing a new credential with a unique name and listing all stored credentials.
+Param: action: The action to perform. Use "store" to save a credential or "retrieve_all" to fetch all credentials.
+Param: name: The name or identifier for the credential (only needed when storing).
+Param: credential: The credential content (only needed when storing).
 
 #!/usr/bin/env python3 ${GPTSCRIPT_TOOL_DIR}/store_credentials.py
