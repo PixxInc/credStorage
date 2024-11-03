@@ -1,6 +1,6 @@
 Name: Credential Storage and Retrieval Tool
 Description: A tool that stores or retrieves all credentials from a JSON file. Supports storing a new credential with a unique name and listing all stored credentials.
-Param: action: The action to perform. Use "store" to save a credential or "retrieve_all" to fetch all credentials.
+Param: action: The action to perform. Use "store" to save a credential or "retrieve_all" to fetch all credentials. ONE OF THESE IS REQURED either "store" or "retrieve_all"
 Param: name: The name or identifier for the credential (only needed when storing).
 Param: credential: The credential content (only needed when storing).
 
