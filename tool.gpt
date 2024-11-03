@@ -14,8 +14,8 @@ description: |
 name: store_credentials  
 description: Stores a credential with a given name in a JSON file.  
 args: 
-- name: (required) The unique name or identifier for the credential.
-- credential: (required) The actual credential to store (e.g., API key, password).  
+  name: (required) The unique name or identifier for the credential.
+  credential: (required) The actual credential to store (e.g., API key, password).  
 tools: python
 
 ---
