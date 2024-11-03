@@ -1,20 +1,7 @@
----
-share context: "github.com/gptscript-ai/credentials/model-provider"
-description: This tool provides a way to store and retrieve all credentials in JSON format. It is designed to be used as a utility by other tools, making it easy to share and manage credentials securely across different scripts. The credentials are saved in a predefined location: `C:\Users\sebas\!!Creds\main.json`.
+Name: Credential Storage and Retrieval Tool
+Description: A Python tool to store, retrieve, and list all credentials from a JSON file. Ensures directory structure exists and manages credentials securely.
+Param: action: The action to perform. Options are 'store' or 'retrieve_all'.
+Param: name: The unique name for the credential (used only for storing).
+Param: credential: The actual credential to store (used only for storing).
 
-### Tool Definitions
-
----
-
-name: store_credentials
-description: Stores a credential with a given name in a JSON file.
-args: name: (required) The unique name or identifier for the credential.
-args: credential: (required) The actual credential to store (e.g., API key, password).
-tools: python
-
----
-
-name: get_all_credentials
-description: Retrieves all stored credentials from the JSON file.
-args: filename: (required) The JSON file path from which to retrieve credentials.
-tools: python
+#!/usr/bin/env python3 ${GPTSCRIPT_TOOL_DIR}/store_credentials.py
