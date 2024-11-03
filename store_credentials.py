@@ -1,8 +1,7 @@
 import os
 import json
-import sys
 
-# Define the path for the JSON file
+# Path for the JSON file
 CREDENTIALS_FILE_PATH = r"C:\Users\sebas\!!Creds\main.json"
 
 # Ensure the directory exists
@@ -38,22 +37,22 @@ def get_all_credentials():
         return f"Failed to retrieve credentials: {str(e)}"
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Error: Missing 'action' argument. Please make sure to include 'store' or 'retrieve_all' as the action.")
+    action = os.getenv('ACTION')
+    name = os.getenv('NAME')
+    credential = os.getenv('CREDENTIAL')
+
+    if not action:
+        print("Error: Missing 'ACTION' environment variable. Please include 'store' or 'retrieve_all'.")
         sys.exit(1)
 
-    action = sys.argv[1]
-
     if action == "store":
-        if len(sys.argv) < 4:
-            print("Error: Missing 'name' or 'credential' arguments for storing. Please provide both.")
+        if not name or not credential:
+            print("Error: 'NAME' and 'CREDENTIAL' environment variables are required for storing.")
             sys.exit(1)
-        name = sys.argv[2]
-        credential = sys.argv[3]
         store_credentials(name, credential)
     elif action == "retrieve_all":
         credentials = get_all_credentials()
         print(credentials)
     else:
-        print("Error: Invalid 'action' argument. Use 'store' to save a credential or 'retrieve_all' to list all credentials.")
+        print("Error: Invalid 'ACTION' value. Use 'store' or 'retrieve_all'.")
         sys.exit(1)
